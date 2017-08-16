@@ -1,0 +1,26 @@
+<html>
+<header>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="eac/jquery.easy-autocomplete.min.js"></script> 
+	<script src="resources/products.json"></script>
+	<script type="text/javascript" src="jonnyrb.js"></script> 
+	<link rel="stylesheet" href="eac/easy-autocomplete.min.css"> 
+</header>
+<body>
+	Products
+	<input id="basics" />
+	<script>
+		var options = {
+			data: []
+		};
+		$.getJSON( "resources/products.json", function( data){
+		  for (var i = 0; i < data.length; i++) {
+			var counter = data[i];
+			options.data.push(data[i].name)
+		  }
+		});
+
+		$("#basics").easyAutocomplete(options);
+	</script>
+</body>
+</html>
